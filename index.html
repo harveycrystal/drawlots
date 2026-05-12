@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>極致抽點器 | Premium Student Picker</title>
+    <meta name="description" content="一個現代、優雅且流暢的網頁隨機抽點器。">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-glow"></div>
+    
+    <main class="app-container">
+        <!-- Sidebar for Picked Names -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>已抽過名單</h2>
+                <span id="picked-count">0</span>
+            </div>
+            <div class="picked-list-container">
+                <ul id="picked-list">
+                    <!-- Picked names will appear here -->
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <button id="edit-list-btn" class="secondary-btn">編輯名單</button>
+                <button id="reset-btn" class="secondary-btn">重置名單</button>
+            </div>
+        </aside>
+
+        <!-- Main Display Area -->
+        <section class="main-content">
+            <header>
+                <div class="class-badge" id="current-class-badge">預設班級</div>
+                <h1>隨機抽點器</h1>
+                <p class="subtitle">誰會是下一個幸運兒？</p>
+            </header>
+
+            <div class="display-card">
+                <div class="name-display" id="name-display">點擊開始</div>
+            </div>
+
+            <div class="controls">
+                <button id="start-btn" class="primary-btn">開始抽點</button>
+                <button id="stop-btn" class="primary-btn stop-btn" disabled>停止</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Editing List -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>管理班級名單</h3>
+                <button id="close-modal-btn" class="icon-btn">✕</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="class-info-section">
+                    <label for="class-name-input">班級名稱</label>
+                    <input type="text" id="class-name-input" placeholder="例如：班級一">
+                </div>
+
+                <div class="names-section">
+                    <label for="edit-textarea">學生名單 (每行一個)</label>
+                    <textarea id="edit-textarea" placeholder="輸入名字..."></textarea>
+                </div>
+
+                <div class="saved-classes-section">
+                    <label>已儲存班級</label>
+                    <div id="saved-classes-list" class="saved-classes-list">
+                        <!-- Saved classes will appear here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-controls">
+                <button id="delete-class-btn" class="danger-btn">刪除此班級</button>
+                <button id="save-edit" class="primary-btn">儲存並載入</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
